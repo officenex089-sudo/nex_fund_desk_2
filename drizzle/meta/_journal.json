@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1790590517646,
+      "tag": "0000_stormy_hardball",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1790756237683,
+      "tag": "0001_eminent_luke_cage",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1790757187532,
+      "tag": "0002_needy_sentinel",
+      "breakpoints": true
+    }
+  ]
+}
