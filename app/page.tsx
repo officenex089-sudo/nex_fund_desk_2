@@ -1,2 +1,3 @@
 import Dashboard from './dashboard';
-export default function Page(){return <Dashboard/>;}
+import {requireChatGPTUser} from './chatgpt-auth';
+export default async function Page(){await requireChatGPTUser();return <Dashboard/>;}
