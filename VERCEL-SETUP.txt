@@ -6,8 +6,9 @@ VERCEL SETUP
 5. Create/reuse a Cloudflare D1 database. For a NEW EMPTY database only, run the three SQL files in drizzle in order (0000, 0001, 0002) using D1 Console or Wrangler. Do not replay completed migrations on an existing database.
 6. Create a Cloudflare API token scoped to your account with D1 Edit permission. Enter account ID, database ID and API token in Vercel Environment Variables as named in .env.example.
 7. Set DASHBOARD_EMAIL and a unique random DASHBOARD_PASSWORD of at least 16 characters in Vercel, then deploy the latest commit. Never send passwords or tokens in chat or commit them.
-8. Open the website over HTTPS. The browser asks for username (DASHBOARD_EMAIL) and password.
-9. Owner-only access is provided in this version. Browser Basic authentication lasts until the browser session closes; separate team/viewer login is not included. Sites authentication headers are never trusted.
+8. Run drizzle/0003_dashboard_login.sql in D1 Console. Open the website over HTTPS and sign in with DASHBOARD_EMAIL and DASHBOARD_PASSWORD.
+9. Add members using Team access. Each member has their own email/password and editor access. See TEAM-LOGIN.txt for instructions.
 10. Existing live database records and Meta tokens were not included in the ZIP. Reuse the original D1 database if accessible; otherwise connect Meta again in the dashboard. Old seed data is not live data.
 
 The Vercel application uses Cloudflare D1 via its REST API; it no longer requires a Cloudflare Worker runtime. REST queries add latency and are subject to Cloudflare API limits. Production data/login require the environment settings above.
+

@@ -1,0 +1,16 @@
+TEAM LOGIN
+
+Deployment: run drizzle/0003_dashboard_login.sql once in the existing Cloudflare D1 Console before deploying this version. It only adds authentication tables and an index. Keep existing Vercel variables unchanged.
+
+1. Open your production website. It redirects to /login.
+2. Owner: enter the existing DASHBOARD_EMAIL and DASHBOARD_PASSWORD set in Vercel.
+3. Click Team access > Add team member. Enter their email and a unique dashboard password (16 characters minimum).
+4. Share the website link and that password with the member privately. No email invitation is sent automatically. Any email provider is supported; this is a dashboard account, not Google sign-in.
+5. Members can view all client data, edit client names and manage Meta connections. Only the owner can add/remove members and reset their passwords.
+6. Each person signs in with their own email and dashboard password. Sessions expire after 8 hours. Sign out ends that session.
+7. Remove a member or reset their password in Team access to invalidate their existing sessions immediately on the next request. Previously viewed data cannot be recalled.
+
+Passwords are stored as salted scrypt hashes. Session cookies are HttpOnly, Secure in production, SameSite=Lax, and backed by hashed tokens in D1. Login attempts are limited per email and IP. Do not commit credentials or paste them in chat.
+The owner password stays in Vercel. Changing it invalidates existing owner sessions. There is no public registration.
+
+For a new database, run SETUP-NEW-DATABASE.sql then drizzle/0003_dashboard_login.sql. Never replay SETUP-NEW-DATABASE.sql on an existing database.
