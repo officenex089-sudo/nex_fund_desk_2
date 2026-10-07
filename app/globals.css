@@ -67,3 +67,26 @@ html.dark{color-scheme:dark;--background:#202126;--foreground:#f2f2f7;--primary:
 @media(max-width:860px){.nex-auth{display:flex;flex-direction:column;min-height:100svh}.nex-auth-story{min-height:0;padding:23px 28px;flex:none}.nex-auth-brand{font-size:21px;gap:11px}.nex-auth-brand b{font-size:10px}.nex-auth-mark{width:33px;height:33px;border-radius:9px}.nex-auth-mark svg{width:24px;height:24px}.nex-auth-intro,.nex-auth-story-footer,.nex-auth-grid{display:none}.nex-auth-entry{min-height:0;flex:1;padding:25px 26px 22px}.nex-auth-topnote{justify-content:center;font-size:8px;letter-spacing:1.2px}.nex-auth-form-wrap{padding:34px 0;max-width:410px}.nex-auth-welcome-icon{display:none}.nex-auth #sign-in-title{font-size:34px;margin-top:8px}.nex-auth-form-kicker{font-size:9px}.nex-auth-form{margin-top:27px;gap:20px}.nex-auth-entry-footer{font-size:9px}.nex-auth-access p{font-size:11px}.nex-auth-subtitle{font-size:14px}.nex-auth-input input{font-size:16px}.nex-auth-field label{font-size:13px}.nex-auth-text-button{font-size:12px!important}.nex-auth-submit{font-size:13px!important}.nex-auth-access strong{font-size:12px}}
 @media(max-width:380px){.nex-auth-entry{padding-left:20px;padding-right:20px}.nex-auth-brand b{font-size:9px}.nex-auth-access{padding:12px 10px;gap:9px}.nex-auth-access p{font-size:10px}.nex-auth-entry-footer{font-size:8px}}
 @media(prefers-reduced-motion:reduce){.nex-auth *{transition:none!important;animation:none!important}}
+
+/* Keep account column labels visible while scrolling through long account lists. */
+.desk .accounts > [data-slot="table-container"] {
+  max-height: 75vh;
+  max-height: 75dvh;
+  overflow: auto;
+  isolation: isolate;
+}
+.desk .accounts > [data-slot="table-container"] > table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+.desk .accounts > [data-slot="table-container"] > table > thead > tr > th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: #fafafa;
+  box-shadow: 0 1px 0 #e5e5ea;
+}
+.dark .desk .accounts > [data-slot="table-container"] > table > thead > tr > th {
+  background: #25272f;
+  box-shadow: 0 1px 0 #363841;
+}
